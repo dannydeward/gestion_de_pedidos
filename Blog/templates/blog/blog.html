@@ -1,0 +1,54 @@
+{% extends "GestionApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+  {% for Post in posts %}
+         
+         
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+     <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{Post.imagen.url}}" alt="" style= "width:30%">
+      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+        <h2 class="section-heading mb-4" style="color:white" >
+          <span class="section-heading-lower" style="align-items: center;">{{Post.titulo}}</span>
+          <span class="section-heading-upper"style="align-items: center;">{{Post.contenido}}</span>
+          
+        </h2>
+<div style="text-align: left;">
+
+  autor: {{Post.autor}}     
+
+        </div>
+
+              </div>
+    </div>
+  </div>
+</section>
+            
+   Categorias: 
+ {% endfor %} <!--este bucle for anidado, nos muestra las publicaciones en el blog y las categorias a las que pertenece-->
+
+ <section>
+<div style=" width:75%; text-align: center; color:white;" >
+
+    {% for Post in posts %}
+
+
+{% for categoria in Post.categorias.all%}
+
+<a href="{% url 'categoria' categoria.id %}">{{categoria.nombre}}</a>&nbsp;&nbsp;&nbsp; <!--el href no sirve paraq darle hiper vinculo a las categorias-->
+
+{% endfor %}
+{% endfor %}
+
+</div>
+
+
+ </section>
+
+   
+    {% endblock %} 

@@ -1,0 +1,30 @@
+{% extends "GestionApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="contenedorFormulario"> <!--con class contenidoFormulario se aplicaronlos estilos css al formulario-->
+ 
+{% if "valido" in request.GET %}
+
+<p style="color:white;">Tu mensaje se ha enviado con exito</p>
+
+{% endif %}
+
+
+    <form action="" method="POST" style="text-align: center;" >
+        {% csrf_token %} <!--Medida de seguridad para evitar violaciones en el formulario-->
+    <table  style="color: white; margin: 20px auto;">
+
+    {{ formulario.as_table }} <!-- metodo as.table permite renderizar el formulario mas rapidamente -->
+</table>
+
+<input type="submit" value="Enviar">
+
+</form>
+</div>
+
+<p style="color:white;">{{request.POST}}</p> <!--esto era para ver el diccionario que guarda los datos-->
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "GestionApp/base.html" %}
+
+{% load static %}
+
+{% block content%}
+
+<div class="container">
+<div class="row">
+{% for Producto in productos  %} <!--con este bucle for, nos permite mostrar todos servicios y su contenido uno trnas otro, pudemos cargar este contendio desde el administrador web-->
+         
+<div class="col-md-3">    
+
+<div class="card"style="width: 100%; margin: 5px 5px">
+
+      <img src="{{Producto.imagen.url }}" class="card-img-top"><!-- clase card-img -top, permite ajustar bien la aimagen a la tarjeta -->
+
+      <div class="card-body" style="text-align: center;"><!-- clase card-body,crea el cuerpo de la tarjeta y card -text,permite escribir dentro de ella-->
+      <h7 class="card-title" style="color:green;">{{Producto.nombre}}</h7><!-- card-title, no permite colocar titulo a la imagen en la tarjeta -->
+      <p  class="card-text"style="color:green">{{ Producto.precio}}</p>
+
+      </div><!--div del card-body--> 
+      
+    </div>   <!--div del card--> 
+</div>  <!--div del col-->  
+   
+ {% endfor %}
+</div><!--div del row--> 
+</div><!--div del container--> 
+
+  
+{% endblock %}}

@@ -1,0 +1,32 @@
+{% extends "GestionApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+  {% for Servicios in servicio %} <!--con este bucle for, nos permite mostrar todos servicios y su contenido uno trnas otro, pudemos cargar este contendio desde el administrador web-->
+         
+         
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+      <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{Servicios.Imagen.url }}" alt="" style="width:50%">
+      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+        <h2 class="section-heading mb-4" >
+          <span class="section-heading-lower">{{Servicios.Titulo}}</span>
+          <span class="section-heading-upper">{{Servicios.Contenido}}</span>
+        </h2>
+              </div>
+    </div>
+  </div>
+</section>
+            
+   
+ {% endfor %}
+
+   
+    {% endblock %} 
